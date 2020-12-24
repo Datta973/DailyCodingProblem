@@ -19,28 +19,18 @@ public class Day_10_JobScheduler{
         js1.start(); // prints Job 1 at 3 seconds
         js2.start(); // prints Job 2 at 5 seconds
     }
-    
-    static interface Callable{
-        public void call();
-    }
-    
+
     // Asynchronous Job scheduler
-    static class JobScheduler{
-        private Thread thread;
-        
-        public JobScheduler(Callable function, int n){
-            thread = new Thread(()->{
+    static class JobScheduler extends Thread{
+        public JobScheduler(Runnable function, int n){
+            super(()->{
                 try{
                     Thread.sleep(n);
-                    function.call();   
+                    function.run();   
                 }catch(Exception ex){
                     ex.printStackTrace();
                 }
             });
-        }
-        
-        public void start(){
-            thread.start();
         }
     }
 }
