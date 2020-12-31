@@ -37,7 +37,6 @@ The name of a directory or sub-directory will not contain a period.
 */
 
 import java.util.List;
-import java.util.Stack;
 import java.util.HashMap;
 
 public class Day_17_LengthOfLongestAbsolutePath{
@@ -69,18 +68,15 @@ public class Day_17_LengthOfLongestAbsolutePath{
 
 		for(String newLine : lines){
 			int i=0;
-
 			while(i<newLine.length() && newLine.charAt(i) == '\t')
 				i++;
 
 			boolean file = false;
-			if(newLine.substring(i,newLine.length()).contains(".")){
+			if(newLine.substring(i,newLine.length()).contains("."))
 				file = true;
-			}
 
 			int level = i;
 			int newLength = newLine.length() - i;
-
 			if(level > 0)
 				newLength = map.get(level-1) + 1 + newLength;
 
