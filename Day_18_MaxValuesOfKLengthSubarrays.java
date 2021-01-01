@@ -25,35 +25,35 @@ public class Day_18_MaxValuesOfKLengthSubarrays{
 	}
 
 	// Time O(n)
-	// Space O(k)
+	// Space O(k) 	
 	private static int[] solve(int[] nums, int k){
 		int n = nums.length;
-        
-        if (n == 0 || k == 0) {
-            return new int[0];
-        }
-        
-        int[] ans = new int[n-k+1];
-        
-        ArrayDeque<Integer> dq = new ArrayDeque<Integer>();
-        
-        for(int i=0;i<n;i++){
-            
-            if(dq.size() > 0 && dq.peek() <= i-k){
-                dq.poll();
-            }
-            
-            while(dq.size() > 0 && nums[dq.peekLast()] < nums[i]){
-                dq.pollLast();
-            }
-            
-            dq.add(i);
-            
-            if(i >= k - 1){
-                ans[i-k+1] = nums[dq.peek()];
-            }
-        }
-        
-        return ans;
+		
+		if (n == 0 || k == 0) {
+			return new int[0];
+		}
+		
+		int[] ans = new int[n-k+1];
+		
+		ArrayDeque<Integer> dq = new ArrayDeque<Integer>();
+		
+		for(int i=0;i<n;i++){
+		    
+			if(dq.size() > 0 && dq.peek() <= i-k){
+				dq.poll();
+			}
+
+			while(dq.size() > 0 && nums[dq.peekLast()] < nums[i]){
+				dq.pollLast();
+			}
+
+			dq.add(i);
+
+			if(i >= k - 1){
+				ans[i-k+1] = nums[dq.peek()];
+			}
+		}
+		
+		return ans;
 	}
 }
