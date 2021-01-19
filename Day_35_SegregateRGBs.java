@@ -18,6 +18,8 @@ public class Day_35_SegregateRGBs{
 		System.out.println(java.util.Arrays.toString(arr));
 	}
 
+	// Time O(n)
+	// Space O(1)
 	private static void solve(char[] arr){
 		int n = arr.length;
 		int left = 0, right = n-1;
