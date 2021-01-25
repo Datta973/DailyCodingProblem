@@ -78,8 +78,8 @@ public class Day_39_GameOfLife{
 				}
 
 				ans[i][j] = score < 2 ? '.' : (score == 2 ? board[i][j] : (score == 3 ? '*' : '.' ));
-            }
-        }
+			}
+		}
 	}
 
 	private static int toBinary(char ch){
