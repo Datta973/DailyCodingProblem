@@ -1,9 +1,24 @@
+/*
+
+Given an array of numbers, find the maximum sum of any contiguous subarray of the array.
+
+For example, given the array [34, -50, 42, 14, -5, 86], the maximum sum would be 137, 
+since we would take elements 42, 14, -5, and 86.
+
+Given the array [-5, -1, -8, -9], the maximum sum would be 0, since we would not take any elements.
+
+Do this in O(N) time.
+
+*/
+
 public class Day_49_MaximumSubarraySum{
 	public static void main(String[] args) {
 		System.out.println(solve(new int[]{34, -50, 42, 14, -5, 86}));
 		System.out.println(solve(new int[]{-5, -1, -8, -9}));
 	}
 
+	// Time O(n)
+	// Space O(1)
 	private static int solve(int[] nums){
 		int ans = 0;
 		int sum = 0;
@@ -11,9 +26,8 @@ public class Day_49_MaximumSubarraySum{
 		for(int x : nums){
 			sum += x;
 
-			if(sum <= 0){
+			if(sum <= 0)
 				sum = 0;
-			}
 
 			ans = Math.max(ans, sum);
 		}
